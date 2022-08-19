@@ -13,26 +13,26 @@ public class Cars {
     @Column(name = "brand")
     private String brand;
     @Basic
-    @Column(name = "seat_number")
-    private int seatNumber;
-    @Basic
-    @Column(name = "license_plates")
-    private String licensePlates;
-    @Basic
     @Column(name = "color")
     private String color;
-    @Basic
-    @Column(name = "main_image")
-    private String mainImage;
     @Basic
     @Column(name = "description")
     private String description;
     @Basic
-    @Column(name = "rental_price")
-    private double rentalPrice;
+    @Column(name = "license_plates")
+    private String licensePlates;
+    @Basic
+    @Column(name = "main_image")
+    private String mainImage;
     @Basic
     @Column(name = "name")
     private String name;
+    @Basic
+    @Column(name = "rental_price")
+    private Double rentalPrice;
+    @Basic
+    @Column(name = "seat_number")
+    private Integer seatNumber;
 
     public long getCarId() {
         return carId;
@@ -50,36 +50,12 @@ public class Cars {
         this.brand = brand;
     }
 
-    public int getSeatNumber() {
-        return seatNumber;
-    }
-
-    public void setSeatNumber(int seatNumber) {
-        this.seatNumber = seatNumber;
-    }
-
-    public String getLicensePlates() {
-        return licensePlates;
-    }
-
-    public void setLicensePlates(String licensePlates) {
-        this.licensePlates = licensePlates;
-    }
-
     public String getColor() {
         return color;
     }
 
     public void setColor(String color) {
         this.color = color;
-    }
-
-    public String getMainImage() {
-        return mainImage;
-    }
-
-    public void setMainImage(String mainImage) {
-        this.mainImage = mainImage;
     }
 
     public String getDescription() {
@@ -90,25 +66,20 @@ public class Cars {
         this.description = description;
     }
 
-    public double getRentalPrice() {
-        return rentalPrice;
+    public String getLicensePlates() {
+        return licensePlates;
     }
 
-    public void setRentalPrice(double rentalPrice) {
-        this.rentalPrice = rentalPrice;
+    public void setLicensePlates(String licensePlates) {
+        this.licensePlates = licensePlates;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Cars cars = (Cars) o;
-        return carId == cars.carId && seatNumber == cars.seatNumber && Double.compare(cars.rentalPrice, rentalPrice) == 0 && Objects.equals(brand, cars.brand) && Objects.equals(licensePlates, cars.licensePlates) && Objects.equals(color, cars.color) && Objects.equals(mainImage, cars.mainImage) && Objects.equals(description, cars.description);
+    public String getMainImage() {
+        return mainImage;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(carId, brand, seatNumber, licensePlates, color, mainImage, description, rentalPrice);
+    public void setMainImage(String mainImage) {
+        this.mainImage = mainImage;
     }
 
     public String getName() {
@@ -117,5 +88,34 @@ public class Cars {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Double getRentalPrice() {
+        return rentalPrice;
+    }
+
+    public void setRentalPrice(Double rentalPrice) {
+        this.rentalPrice = rentalPrice;
+    }
+
+    public Integer getSeatNumber() {
+        return seatNumber;
+    }
+
+    public void setSeatNumber(Integer seatNumber) {
+        this.seatNumber = seatNumber;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cars cars = (Cars) o;
+        return carId == cars.carId && Objects.equals(brand, cars.brand) && Objects.equals(color, cars.color) && Objects.equals(description, cars.description) && Objects.equals(licensePlates, cars.licensePlates) && Objects.equals(mainImage, cars.mainImage) && Objects.equals(name, cars.name) && Objects.equals(rentalPrice, cars.rentalPrice) && Objects.equals(seatNumber, cars.seatNumber);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(carId, brand, color, description, licensePlates, mainImage, name, rentalPrice, seatNumber);
     }
 }

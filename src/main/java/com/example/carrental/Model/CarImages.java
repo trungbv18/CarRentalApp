@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "car_images", schema = "dbo", catalog = "carRental")
+@Table(name = "car_images", schema = "car_rental", catalog = "")
 public class CarImages {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -12,7 +12,7 @@ public class CarImages {
     private long imageId;
     @Basic
     @Column(name = "car_id")
-    private long carId;
+    private Long carId;
     @Basic
     @Column(name = "sub_image")
     private String subImage;
@@ -25,11 +25,11 @@ public class CarImages {
         this.imageId = imageId;
     }
 
-    public long getCarId() {
+    public Long getCarId() {
         return carId;
     }
 
-    public void setCarId(long carId) {
+    public void setCarId(Long carId) {
         this.carId = carId;
     }
 
@@ -46,7 +46,7 @@ public class CarImages {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CarImages carImages = (CarImages) o;
-        return imageId == carImages.imageId && carId == carImages.carId && Objects.equals(subImage, carImages.subImage);
+        return imageId == carImages.imageId && Objects.equals(carId, carImages.carId) && Objects.equals(subImage, carImages.subImage);
     }
 
     @Override

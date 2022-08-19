@@ -10,14 +10,14 @@ public class Feedbacks {
     @Column(name = "feedback_id")
     private long feedbackId;
     @Basic
-    @Column(name = "user_id")
-    private long userId;
-    @Basic
     @Column(name = "car_id")
-    private long carId;
+    private Long carId;
     @Basic
     @Column(name = "content")
     private String content;
+    @Basic
+    @Column(name = "user_id")
+    private Long userId;
 
     public long getFeedbackId() {
         return feedbackId;
@@ -27,19 +27,11 @@ public class Feedbacks {
         this.feedbackId = feedbackId;
     }
 
-    public long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(long userId) {
-        this.userId = userId;
-    }
-
-    public long getCarId() {
+    public Long getCarId() {
         return carId;
     }
 
-    public void setCarId(long carId) {
+    public void setCarId(Long carId) {
         this.carId = carId;
     }
 
@@ -51,16 +43,24 @@ public class Feedbacks {
         this.content = content;
     }
 
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Feedbacks feedbacks = (Feedbacks) o;
-        return feedbackId == feedbacks.feedbackId && userId == feedbacks.userId && carId == feedbacks.carId && Objects.equals(content, feedbacks.content);
+        return feedbackId == feedbacks.feedbackId && Objects.equals(carId, feedbacks.carId) && Objects.equals(content, feedbacks.content) && Objects.equals(userId, feedbacks.userId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(feedbackId, userId, carId, content);
+        return Objects.hash(feedbackId, carId, content, userId);
     }
 }

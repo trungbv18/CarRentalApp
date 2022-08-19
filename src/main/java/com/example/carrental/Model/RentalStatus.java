@@ -1,18 +1,35 @@
 package com.example.carrental.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
-@Table(name = "rental_status", schema = "dbo", catalog = "carRental")
+@Table(name = "rental_status", schema = "car_rental", catalog = "")
 public class RentalStatus {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "status_id")
     private int statusId;
+
+//    public Set<Orders> getOrders() {
+//        return orders;
+//    }
+//
+//    public void setOrders(Set<Orders> orders) {
+//        this.orders = orders;
+//    }
+
     @Basic
     @Column(name = "name")
     private String name;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "rentalStatusId")
+    private Set<Orders> orders;
+
 
     public int getStatusId() {
         return statusId;

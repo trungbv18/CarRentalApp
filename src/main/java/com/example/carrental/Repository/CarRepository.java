@@ -2,8 +2,7 @@ package com.example.carrental.Repository;
 
 import com.example.carrental.Model.Cars;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
+
 public interface CarRepository extends JpaRepository<Cars, Long> {
 //    @Query("SELECT car FROM Cars car")
 //    List<Cars> showAllCars();

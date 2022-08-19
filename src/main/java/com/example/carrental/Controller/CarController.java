@@ -1,7 +1,6 @@
 package com.example.carrental.Controller;
 
 import com.example.carrental.Model.Cars;
-import com.example.carrental.Repository.CarRepository;
 import com.example.carrental.Service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
