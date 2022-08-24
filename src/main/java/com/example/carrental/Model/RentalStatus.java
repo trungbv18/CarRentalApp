@@ -13,15 +13,6 @@ public class RentalStatus {
     @Id
     @Column(name = "status_id")
     private int statusId;
-
-//    public Set<Orders> getOrders() {
-//        return orders;
-//    }
-//
-//    public void setOrders(Set<Orders> orders) {
-//        this.orders = orders;
-//    }
-
     @Basic
     @Column(name = "name")
     private String name;

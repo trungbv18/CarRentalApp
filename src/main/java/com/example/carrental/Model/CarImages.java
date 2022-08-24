@@ -10,12 +10,20 @@ public class CarImages {
     @Id
     @Column(name = "image_id")
     private long imageId;
-    @Basic
-    @Column(name = "car_id")
-    private Long carId;
+//    @Basic
+//    @Column(name = "car_id")
+//    private Long carId;
     @Basic
     @Column(name = "sub_image")
     private String subImage;
+
+    public void setCarId(Cars carId) {
+        this.carId = carId;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "car_id")
+    private Cars carId;
 
     public long getImageId() {
         return imageId;
@@ -25,13 +33,7 @@ public class CarImages {
         this.imageId = imageId;
     }
 
-    public Long getCarId() {
-        return carId;
-    }
 
-    public void setCarId(Long carId) {
-        this.carId = carId;
-    }
 
     public String getSubImage() {
         return subImage;

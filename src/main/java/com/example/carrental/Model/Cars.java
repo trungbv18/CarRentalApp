@@ -2,6 +2,7 @@ package com.example.carrental.Model;
 
 import javax.persistence.*;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 public class Cars {
@@ -33,6 +34,8 @@ public class Cars {
     @Basic
     @Column(name = "seat_number")
     private Integer seatNumber;
+    @OneToMany(mappedBy = "carId")
+    private Set<CarImages> carImages;
 
     public long getCarId() {
         return carId;
@@ -105,6 +108,7 @@ public class Cars {
     public void setSeatNumber(Integer seatNumber) {
         this.seatNumber = seatNumber;
     }
+
 
     @Override
     public boolean equals(Object o) {
